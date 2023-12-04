@@ -1,0 +1,60 @@
+.lt-left {
+    display: inline-block;
+    vertical-align: top;
+    width: 70%;
+}
+
+.lt-right {
+    display: inline-block;
+    vertical-align: top;
+    width: 29%;
+}
+
+.lt-creation {
+    color: #aaa;
+}
+
+.lt-form-watch {
+    padding: 6px 0;
+}
+
+.lt-sold,
+.lt-comment-empty {
+    font-style: italic;
+}
+
+.lt-sold.is-current {
+    color: darkred;
+}
+
+.lt-comment {
+    padding: 12px 18px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.lt-comment.personal {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+}
+
+.lt-comment .user {
+    color: darkblue;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.lt-comment .title {
+    font-weight: bold;
+}
+
+.lt-comment .content {
+    padding-left: 12px;
+}
+
+.bid-form .form-label {
+    width: 8%;
+}
+
+.bid-form .form-input {
+    width: 91%;
+}

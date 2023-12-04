@@ -1,0 +1,28 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'auctions/css/index.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block body %}
+    <h2>{% block pageheading %}Active Listings{% endblock pageheading %}</h2>
+
+    <div>
+        {% for lt in listings %}
+            <div class="cust-row">
+                <div class="lt-left">
+                    {% include "auctions/snippets/lt/image.html" %}
+                </div>
+                <div class="lt-right">
+                    <div class="lt-title"><a href="{% url 'listing' lt.id %}">{{ lt.title }}</a></div>
+                    {% include "auctions/snippets/lt/categories.html" %}
+                    {% include "auctions/snippets/lt/price.html" with max_bid=lt.get_max_bid %}
+                    {% include "auctions/snippets/lt/description.html" %}
+                </div>
+            </div>
+        {% empty %}
+            <span class="no-listings">No listings yet</span>
+        {% endfor %}
+    </div>
+{% endblock body %}

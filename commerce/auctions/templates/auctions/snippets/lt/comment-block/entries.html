@@ -1,0 +1,35 @@
+<div class="lt-comment-container">
+    <div>
+        {% if lc.num_of_comments %}
+            {% if lc.user_comment %}
+                <div class="lt-comment personal">
+                    <div class="summary">
+                        <span class="user">You</span>
+                        <span> commented: </span>
+                        <span class="title">{{ lc.user_comment.title }}</span>
+                    </div>
+                    {% if lc.user_comment.content %}
+                        <div class="content">{{ lc.user_comment.content }}</div>
+                    {% endif %}
+                    <div class="lt-comment-link">
+                        <a href="{% url 'comment-edit' lc.user_comment.id %}">Edit this comment</a>
+                    </div>
+                </div>
+            {% endif %}
+            {% for com in lc.other_comments %}
+                <div class="lt-comment">
+                    <div class="summary">
+                        <span class="user">{{ com.user }}</span>
+                        <span> commented: </span>
+                        <span class="title">{{ com.title }}</span>
+                    </div>
+                    {% if com.content %}
+                        <div class="content">{{ com.content }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="lt-comment-empty">No comments yet</div>
+        {% endif %}
+    </div>
+</div>

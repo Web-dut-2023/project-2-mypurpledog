@@ -1,0 +1,54 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block title %}
+    {{ lt.title }}
+{% endblock title %}
+
+{% block head %}
+    <link href="{% static 'auctions/css/listing.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block body %}
+    {% if lt %}
+        <div class="cust-row">
+            <div class="lt-left">
+                <h2>{{ lt.title }}</h2>
+                {% include "auctions/snippets/lt/image.html" %}
+                {% include "auctions/snippets/lt/description.html" %}
+                {% include "auctions/snippets/lt/categories.html" %}
+                {% include "auctions/snippets/lt/creation.html" %}
+                {% include "auctions/snippets/lt/watch.html" %}
+            </div>
+            <div class="lt-right">
+                <h3>Bids</h3>
+                {% include "auctions/snippets/lt/price.html" with currency=lb.currency max_bid=lb.max_bid %}
+                {% if lt.active %}
+                    {% include "auctions/snippets/lt/bid/current.html" %}
+                    {% if bid_err %}
+                        <div class="lt-bid-err">{{ bid_err }}</div>
+                    {% endif %}
+                    {% if is_owner %}
+                        {% include "auctions/snippets/lt/bid/close.html" %}
+                    {% elif user.is_authenticated %}
+                        {% include "auctions/snippets/lt/bid/bid.html" %}
+                    {% else %}
+                        <div class="auth-required">Log in to start bidding!</div>
+                    {% endif %}
+                {% else %}
+                    {% include "auctions/snippets/lt/bid/sold.html" %}
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            <h3>Comments</h3>
+            {% if user.is_authenticated and not lc.user_comment %}
+                {% include "auctions/snippets/lt/comment-block/new.html" %}
+            {% endif %}
+            {% include "auctions/snippets/lt/comment-block/entries.html" %}
+        </div>
+        <script type="application/javascript" src="{% static 'auctions/js/currency.js' %}"></script>
+    {% else %}
+        <h2>Requested listing does not exist!</h2>
+    {% endif %}
+{% endblock body %}

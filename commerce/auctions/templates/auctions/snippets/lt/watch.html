@@ -1,0 +1,23 @@
+{% if user.is_authenticated %}
+    <form action="{% url 'watch' %}" method="POST" class="lt-form-watch">
+        {% csrf_token %}
+        {% for field in lf.watch_form.hidden_fields %}
+            {{ field }}
+        {% endfor %}
+        {% for field in lf.watch_form.visible_fields %}
+            <div class="form-group row">
+                <div class="form-label">
+                    {{ field.label_tag }}
+                </div>
+                <div class="form-input">
+                    {{ field }}
+                </div>
+            </div>
+        {% endfor %}
+        {% if watching %}
+            <button type="submit" class="btn btn-primary">Remove from watchlist</button>
+        {% else %}
+            <button type="submit" class="btn btn-primary">Add to watchlist</button>
+        {% endif %}
+    </form>
+{% endif %}

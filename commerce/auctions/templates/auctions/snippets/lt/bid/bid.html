@@ -1,0 +1,22 @@
+<form action="{% url 'bid' %}" method="POST" class="lt-form-bid bid-form">
+    {% csrf_token %}
+    {% for field in lf.bid_form.hidden_fields %}
+        {{ field }}
+    {% endfor %}
+    {% for field in lf.bid_form.visible_fields %}
+        <div class="form-group row">
+            <div class="form-label">
+                {{ field.label_tag }}
+            </div>
+            <div class="form-input">
+                {{ field }}
+            </div>
+        </div>
+    {% endfor %}
+    <div class="row">
+        <div class="form-label"></div>
+        <div class="form-input">
+            <button type="submit" class="btn btn-primary">Bid</button>
+        </div>
+    </div>
+</form>

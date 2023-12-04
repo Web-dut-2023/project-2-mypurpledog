@@ -1,0 +1,11 @@
+<div class="lt-categories">
+    {% if lt.active %}
+        {% for cat in lt.categories.all|dictsort:'name' %}
+            <span class="content">
+                <a href="{% url 'category' cat %}">{{ cat }}</a>
+            </span>
+        {% endfor %}
+    {% else %}
+        <span class="content inactive">Inactive</span>
+    {% endif %}
+</div>

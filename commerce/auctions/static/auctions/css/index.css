@@ -1,0 +1,26 @@
+.lt-left {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+
+.lt-right {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+
+.lt-title a {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .lt-left {
+        width: 39%;
+    }
+
+    .lt-right {
+        width: 60%;
+    }
+}

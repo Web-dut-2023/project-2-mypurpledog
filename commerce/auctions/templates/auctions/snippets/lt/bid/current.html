@@ -1,0 +1,6 @@
+<div class="lt-bids">
+    <span class="num">{{ lb.num_bids }} bid{{ lb.num_bids|pluralize }} so far.</span>
+    {% if lb.is_max_bid %}
+        <span class="is-current"> Your bid is the current bid.</span>
+    {% endif %}
+</div>

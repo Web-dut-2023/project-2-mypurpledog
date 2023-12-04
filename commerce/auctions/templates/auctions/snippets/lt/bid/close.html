@@ -1,0 +1,5 @@
+<form action="{% url 'close' %}" method="POST" class="lt-form-close">
+    {% csrf_token %}
+    {{ lf.close_form }}
+    <button type="submit" class="btn btn-primary" {% if lb.no_bids %}disabled{% endif %}>Mark sold</button>
+</form>

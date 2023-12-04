@@ -1,0 +1,29 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Commenting on "{{ lt.title }}"
+{% endblock title %}
+
+{% block head %}
+    <link href="{% static 'auctions/css/comment.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block body %}
+    {% if lt %}
+        <div>
+            <h2>Commenting on "{{ lt.title }}"</h2>
+            {% include "auctions/snippets/lt/image.html" %}
+            {% include "auctions/snippets/lt/description.html" %}
+            {% include "auctions/snippets/lt/categories.html" %}
+            <hr>
+            {% if user.is_authenticated %}
+                {% include "auctions/snippets/lt/comment-block/comment.html" %}
+            {% else %}
+                <div class="auth-required">Log in to add a comment!</div>
+            {% endif %}
+        </div>
+    {% else %}
+        <h2>Requested listing does not exist!</h2>
+    {% endif %}
+{% endblock body %}

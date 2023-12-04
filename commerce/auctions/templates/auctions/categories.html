@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Categories
+{% endblock title %}
+
+{% block head %}
+    <link href="{% static 'auctions/css/categories.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block body %}
+    <h2>Categories</h2>
+
+    <div class="lt-categories">
+        {% for cat in categories|dictsort:'name' %}
+            <div class="content"><a href="{% url 'category' cat %}">{{ cat }}</a></div>
+        {% empty %}
+            <div>No categories yet</div>
+        {% endfor %}
+    </div>
+{% endblock body %}

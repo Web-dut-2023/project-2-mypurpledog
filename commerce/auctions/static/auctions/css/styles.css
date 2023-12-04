@@ -1,0 +1,71 @@
+body {
+    padding: 10px;
+}
+
+img {
+    max-width: 100%;
+}
+
+form input[type="submit"] {
+    color: white;
+    border: none;
+    border-radius: 6px;
+    background-color: darkcyan;
+}
+
+a.nav-link {
+    display: inline-block;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.form-label {
+    padding: 0 6px;
+    text-align: right;
+    width: 16%;
+}
+
+.form-input {
+    width: 83%;
+}
+
+.btn a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.cust-row {
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin-bottom: 6px;
+}
+
+.wishlist-len,
+.lt-categories .content {
+    color: white;
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 6px;
+    background-color: grey;
+}
+
+.lt-categories .content.inactive {
+    background-color: darkred;
+}
+
+.lt-categories .content a {
+    color: white;
+    text-decoration: none;
+}
+
+.lt-price .content {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.lt-description {
+    padding: 6px 0;
+}
